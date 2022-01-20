@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "packetriot-client-gui",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]

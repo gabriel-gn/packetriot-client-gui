@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/packetriot-client-gui",
   "sourceRoot": "apps/packetriot-client-gui/src",
-  "prefix": "packetriot-client-gui",
+  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
