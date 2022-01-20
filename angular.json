@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "packetriot-client-gui": "apps/packetriot-client-gui",
+    "packetriot-client-gui-e2e": "apps/packetriot-client-gui-e2e"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/packetriot-client-gui-e2e",
+  "sourceRoot": "apps/packetriot-client-gui-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/packetriot-client-gui-e2e/cypress.json",
+        "devServerTarget": "packetriot-client-gui:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "packetriot-client-gui:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/packetriot-client-gui-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["packetriot-client-gui"]
+}
