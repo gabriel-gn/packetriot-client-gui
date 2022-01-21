@@ -1,0 +1,22 @@
+{
+	"version": "v0.12.2",
+	"key": "41b248c0dc7087764d4daf33fc6ec06dcda6ad32ad83520c650c48877904a22bdd1d949fb9245301e6cb31a365be254b44db18607b997e26289c54513791d006143cf4b2eeb1c8376d81485c5151ad4b34e6b46e671bef32189eaf69592e96273997cb52156b7a65a6d657dd659b476f85f75fd86e48cc685c2512fd06be2e16",
+	"hostname": "xenodochial-darkness-69708.pktriot.net",
+	"serverKey": "43c5a7a5341238236d2811fda7ee8b13587afd73de94887ecb4ddf282893e54ec964247136a9057ecba3bb186228656bcb59bdb12d756956fa728f368a22b1336925f1ad0ec6973394ac0fd178061a0a8455094267a5db5769db752606e3322ab241c2a47d287f00a26450ed07f37a6c1201c4caa935717b6606bea236f48a73",
+	"serverHost": "us-west-11608.packetriot.net",
+	"monitor": {
+		"port": 43331
+	},
+	"https": [
+		{
+			"domain": "xenodochial-darkness-69708.pktriot.net",
+			"secure": true,
+			"destination": "http://docker.for.mac.host.internal:4200",
+			"port": 80,
+			"tls": 443,
+			"useLetsEnc": true,
+			"redirect": true,
+			"upstreamURL": "http://docker.for.mac.host.internal:4200"
+		}
+	]
+}
