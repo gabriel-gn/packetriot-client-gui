@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/packetriot-client-gui",
         "index": "apps/packetriot-client-gui/src/index.html",
@@ -18,7 +20,10 @@
           "apps/packetriot-client-gui/src/favicon.ico",
           "apps/packetriot-client-gui/src/assets"
         ],
-        "styles": ["apps/packetriot-client-gui/src/styles.scss"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/packetriot-client-gui/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -86,7 +91,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/packetriot-client-gui"],
+      "outputs": [
+        "coverage/apps/packetriot-client-gui"
+      ],
       "options": {
         "jestConfig": "apps/packetriot-client-gui/jest.config.js",
         "passWithNoTests": true

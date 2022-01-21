@@ -17,12 +17,18 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/packetriot-client-gui-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": [
+          "apps/packetriot-client-gui-e2e/**/*.{js,ts}"
+        ]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["packetriot-client-gui"]
+  "implicitDependencies": [
+    "packetriot-client-gui"
+  ]
 }
