@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class HttpApiService {
     private http: HttpClient
   ) { }
 
-  public algoae(): Observable<any> {
-    return this.http.get('http://localhost:3333/api/hello');
+  public getConfigFile(): Observable<any> {
+    return this.http.get(`${environment.backendUrl}/api/config`);
   }
 }

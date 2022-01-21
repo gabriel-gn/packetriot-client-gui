@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { from, map, Observable, of } from 'rxjs';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 
 @Injectable()
 export class PacketriotConfigService {
@@ -7,24 +7,25 @@ export class PacketriotConfigService {
   }
 
   public getConfigFile(): Observable<any> {
+    const filePath = "/Usersa/ggn/Desktop/packetriot-client-gui/packetriot_volume/config.json";
     try {
-      return of(require("/Users/ggn/Desktop/packetriot-client-gui/packetriot_volume/config.json"));
-    } catch (e) {
-      return of(undefined);
+      return of(require(filePath));
+    } catch(e) {
+      return throwError(() => new NotFoundException('Config Not Found'));
     }
   }
 
-  public hasConfigFile(): Observable<boolean> {
-    return this.getConfigFile()
-    .pipe(
-      map(config => {
-        if (!!config) {
-          return true
-        } else {
-          return false
-        }
-      })
-    )
-    ;
-  }
+  // public hasConfigFile(): Observable<boolean> {
+  //   return this.getConfigFile()
+  //   .pipe(
+  //     map(config => {
+  //       if (!!config) {
+  //         return true
+  //       } else {
+  //         return false
+  //       }
+  //     })
+  //   )
+  //   ;
+  // }
 }

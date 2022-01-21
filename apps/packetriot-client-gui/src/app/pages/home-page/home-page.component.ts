@@ -16,8 +16,14 @@ export class HomePageComponent implements OnInit {
   }
 
   callBackend() {
-    this.http.algoae().subscribe(response => {
+    this.http.getConfigFile().subscribe(response => {
       console.log(response);
+    }, error => {
+      if (error.status == 404) {
+        console.log('não encontrou config');
+      } else {
+        console.log('erro inesperado');
+      }
     })
   }
 
