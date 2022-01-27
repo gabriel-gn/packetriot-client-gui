@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EndpointCardModule } from '../../components/endpoint-card/endpoint-card.module';
+import { NgIfLoadedModule } from '@mprisma/components';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const components = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    EndpointCardModule
+    EndpointCardModule,
+    NgIfLoadedModule.forRoot()
   ]
 })
 export class HomePageModule { }

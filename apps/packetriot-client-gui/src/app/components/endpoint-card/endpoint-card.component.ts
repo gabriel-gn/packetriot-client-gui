@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-endpoint-card',
   templateUrl: './endpoint-card.component.html',
   styleUrls: ['./endpoint-card.component.scss']
 })
-export class EndpointCardComponent implements OnInit {
+export class EndpointCardComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
 }

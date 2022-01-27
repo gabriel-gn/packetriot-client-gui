@@ -1,3 +1,13 @@
-<p>home-page works!</p>
-<button (click)='callBackend()'>Chamar Backend</button>
-<app-endpoint-card></app-endpoint-card>
+<ng-container *ngIfLoaded='configFile || error'>
+  <ng-container *ngIf='configFileLoaded; then configFileLoaded; else configFileError'></ng-container>
+</ng-container>
+
+
+<ng-template #configFileLoaded>
+  <p>Configuração carregada com sucesso!</p>
+  <app-endpoint-card></app-endpoint-card>
+</ng-template>
+
+<ng-template #configFileError>
+  <p>Error na config File</p>
+</ng-template>

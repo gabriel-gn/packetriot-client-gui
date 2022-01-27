@@ -1,30 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpApiService } from '../../services/http-api/http-api.service';
+import { catchError, map, Observable, retry, throwError } from 'rxjs';
+import { PacketriotConfig } from '@packetriot-client-gui/api-interfaces';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent  {
+
+  public configFile: PacketriotConfig | undefined;
+  public error: number | undefined;
 
   constructor(
     private http: HttpApiService
-  ) { }
-
-  ngOnInit(): void {
+  ) {
+    this.getConfigFile().subscribe(response => {
+      this.configFile = response;
+    })
   }
 
-  callBackend() {
-    this.http.getConfigFile().subscribe(response => {
-      console.log(response);
-    }, error => {
-      if (error.status == 404) {
-        console.log('não encontrou config');
-      } else {
-        console.log('erro inesperado');
-      }
-    })
+  getConfigFile(): Observable<PacketriotConfig> {
+    return this.http.getConfigFile().pipe(
+      retry(3),
+      map(response => {
+        return response;
+      }),
+      catchError(error => {
+        this.error = error.status;
+        if (error.status == 404) {
+          return throwError(() => 'Missing config file');
+        } else {
+          return throwError(() => 'Unexpected error');
+        }
+      })
+    )
   }
 
 }
