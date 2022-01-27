@@ -4,10 +4,17 @@
 
 
 <ng-template #configFileLoaded>
-  <p>Configuração carregada com sucesso!</p>
-  <app-endpoint-card></app-endpoint-card>
+  <ng-container *ngIf='configFile'>
+    <p>Hostname: {{configFile.hostname}}</p>
+    <p>Server: {{configFile.serverHost}}</p>
+    <ng-container *ngFor='let https of configFile!.https; let i = index'>
+      <app-endpoint-card [endpointEntry]='https'></app-endpoint-card>
+    </ng-container>
+  </ng-container>
 </ng-template>
 
 <ng-template #configFileError>
-  <p>Error na config File</p>
+  <ng-container *ngIf='error'>
+    <p>Error na config File</p>
+  </ng-container>
 </ng-template>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpApiService } from '../../services/http-api/http-api.service';
-import { catchError, map, Observable, retry, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { PacketriotConfig } from '@packetriot-client-gui/api-interfaces';
 
 @Component({
@@ -23,8 +23,8 @@ export class HomePageComponent  {
 
   getConfigFile(): Observable<PacketriotConfig> {
     return this.http.getConfigFile().pipe(
-      retry(3),
       map(response => {
+        console.log(response);
         return response;
       }),
       catchError(error => {

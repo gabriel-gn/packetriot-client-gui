@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PacketriotHttps } from '@packetriot-client-gui/api-interfaces';
 
 @Component({
   selector: 'app-endpoint-card',
@@ -7,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class EndpointCardComponent  {
 
-  constructor() {
-  }
+  @Input() endpointEntry: PacketriotHttps | undefined = undefined;
 
 }

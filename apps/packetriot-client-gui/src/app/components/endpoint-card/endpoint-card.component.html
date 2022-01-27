@@ -1,3 +1,7 @@
-<pm-basic-card>
-  <p>Hello World</p>
+<pm-basic-card *ngIf='endpointEntry'>
+  <span>
+    <div *ngFor="let item of endpointEntry | keyvalue">
+      <b>{{item.key}}:</b> {{item.value}}
+    </div>
+  </span>
 </pm-basic-card>
